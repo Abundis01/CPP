@@ -1,0 +1,123 @@
+//main.cpp
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() 
+{
+  int choice;
+  double totalNeed;
+  double totalPaint, redPaint, whitePaint, bluePaint;
+  double paintPrice, paintCovered;
+  double totalTile, gTiles, goTiles, pTiles;
+  double tilePrice, tilesCovered, newTotal;
+  double totalCarpet, pCarpet, fCarpet, gCarpet;
+  double carpetPrice, carpetCovered;
+  bool fixing = true;
+  while (fixing != false)
+  {
+    cout << " Choose one of the following options";
+    cout << " 1 - Enter the total square feet thats going to get renovated and follow the instructions.\n";
+    cout << " 2 - Quit.\n";
+    cout << " Enter your choice and press enter: ";
+    cin >> choice;
+    switch (choice)
+    {
+      case 1:
+      cout << "Enter the total area in ft^2 that is going to be renovated in the house\n";
+      cin >> totalNeed;
+      
+      cout << "Enter the amount of area you need to paint for the renovation. ";
+      cin >> totalPaint;
+      if (totalPaint >= 0)
+      {
+        cout << "How much red paint do you need?\n ";
+        cout << "Red paint cost $15 covers 20 ft^2\n";
+        cout << "If none enter zero.\n";
+        cin >> redPaint;
+        cout << "How much white paint do you need?\n";
+        cout << "White paint cost $20 covers 10 ft^2\n";
+        cout << "If none enter zero.\n";
+        cin >> whitePaint;
+        cout << "How much blue paint do you need?\n";
+        cout << "Blue paint cost $5 covers 30 ft^2\n";
+        cout << "If none enter zero.\n";
+        cin >> bluePaint;
+        paintPrice = (redPaint*15)+(whitePaint*20)+(bluePaint*5);
+        paintCovered = (redPaint*20)+(whitePaint*10)+(bluePaint*30);
+        cout << "Your total paint bill is $"<< paintPrice<<".\n";
+        cout << "Your total paint coverage is "<< paintCovered << " ft^2.\n";
+        if (paintCovered < totalPaint)
+        {
+          cout << "You don't have enough paint for the project.\n";
+        }
+        if (paintCovered >= totalPaint)
+        {
+          cout << "You are all set on paint.\n";
+        }
+      }
+      
+      cout << "Enter the amount of area you need to cover in tile\n";
+      cin >> totalTile;
+      newTotal = (totalTile*.05)+totalTile;
+      cout << "How much persian tiles do you need?\n";
+      cout << "persian tiles cost $150 & covers 10 ft^2\n";
+      cout << "If none enter zero.\n";
+      cin >> pTiles;
+      cout << "How much glass tiles do you need?\n";
+      cout << "Glass tiles cost $80 covers 20 ft^2\n";
+      cout << "If none enter zero.\n";
+      cin >> gTiles;
+      cout << "How much gold tiles do you need?\n";
+      cout << "Gold tiles cost $5000 covers 5 ft^2\n";
+      cout << "If none enter zero.\n";
+      cin >> goTiles;
+      tilePrice = (pTiles*150)+(gTiles*80)+(goTiles*5000);
+      tilesCovered = (pTiles*10)+(gTiles*20)+(goTiles*5);
+      cout << "Your total tile bill is $"<< tilePrice <<".\n";
+      cout << "Your total tile coverage is "<< tilesCovered << " ft^2.\n";
+      if (tilesCovered < newTotal)
+      {
+        cout << "You don't have enough tiles for the project.\n";
+      }
+      if (tilesCovered >= newTotal)
+      {
+        cout << "You are all set on tiles.\n";
+      }
+      
+      cout << "Enter the amount of area you need to cover in carpet\n";
+      cin >> totalCarpet;
+      cout << "How much persian carpet do you need?\n";
+      cout << "persian carpet cost $1000 & covers 50 ft^2\n";
+      cout << "If none enter zero.\n";
+      cin >> pCarpet;
+      cout << "How much fury carpet do you need?\n";
+      cout << "Fury carpet cost $80 covers 20 ft^2\n";
+      cout << "If none enter zero.\n";
+      cin >> fCarpet;
+      cout << "How much gold carpet do you need?\n";
+      cout << "Gold carpet cost $50000 covers 50 ft^2\n";
+      cout << "If none enter zero.\n";
+      cin >> gCarpet;
+      carpetPrice = (pCarpet*1000)+(fCarpet*80)+(gCarpet*50000);
+      carpetCovered = (pCarpet*50)+(fCarpet*20)+(gCarpet*50);
+      cout << "Your total carpet bill is $"<< carpetPrice <<".\n";
+      cout << "Your total carpet coverage is "<< carpetCovered << "ft^2.\n";
+      if (carpetCovered < totalCarpet)
+        {
+          cout << "You don't have enough carpet for the project.\n";
+        }
+        if (carpetCovered >= totalCarpet)
+        {
+          cout << "You are all set on carpet.\n";
+        }
+      break;
+      
+      case 2:
+      cout << "Closing programm...\n";
+      fixing = false;
+      break;
+    }
+  }
+  return 0;
+}
